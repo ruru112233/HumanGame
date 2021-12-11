@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         if (jumpFlag) return;
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpFlag = true;
             Debug.Log("ƒWƒƒƒ“ƒv");
