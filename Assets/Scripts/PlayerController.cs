@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     private float speed = 2.0f;
     private float angleSpeed = 100;
 
+    private float jumpPower = 3.0f;
+    private bool jumpFlag = false;
+
     private Rigidbody rb;
 
     // Start is called before the first frame update
@@ -18,7 +21,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Jump();
     }
 
     private void FixedUpdate()
@@ -45,5 +48,26 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * angleSpeed;
         transform.Rotate(Vector3.up * x);
 
+    }
+
+    private void Jump()
+    {
+        if (jumpFlag) return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpFlag = true;
+            Debug.Log("ジャンプ");
+            // ジャンプ
+            rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            jumpFlag = false;
+        }
     }
 }
