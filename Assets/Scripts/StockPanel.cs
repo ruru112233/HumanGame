@@ -1,20 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class StockPanel : MonoBehaviour
 {
-    public StockPanel stockPanel;
-
-    public static GameManager instance;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-    }
+    public List<Button> buttonList;
 
     // Start is called before the first frame update
     void Start()
