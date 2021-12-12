@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private float speed = 2.0f;
     private float angleSpeed = 100;
 
-    private float jumpPower = 3.0f;
+    private float jumpPower = 6.0f;
     private bool jumpFlag = false;
 
     private Rigidbody rb;
