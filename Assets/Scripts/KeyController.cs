@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EnumScript;
+using KeyCodeScript;
 
 public class KeyController : MonoBehaviour
 {
 
     private bool playerFlag = false;
+
+    public Enums.KeyType keyType;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +22,7 @@ public class KeyController : MonoBehaviour
     {
         if (playerFlag)
         {
-            if (Input.GetKey(KeyCode.C))
+            if (Input.GetKey(KeySet.investigateKey))
             {
                 Destroy(this.gameObject);
             }
