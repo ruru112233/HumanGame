@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpFlag = true;
-            Debug.Log("ジャンプ");
             // ジャンプ
             rb.AddForce(transform.up * jumpPower, ForceMode.Impulse);
         }

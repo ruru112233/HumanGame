@@ -55,6 +55,7 @@ public class CupboardController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("ÚG");
             investigateFlag = true;
         }
     }
