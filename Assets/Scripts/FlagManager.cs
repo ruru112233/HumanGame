@@ -7,6 +7,7 @@ namespace CheckPoint
     public static class FlagManager
     {
         public static bool crearFlag = false;
+        public static bool treasureFlag = false;
         public static bool blackKeyFlag = false; // クリア用のキー
 
         public static bool blueKeyFlag = false;
