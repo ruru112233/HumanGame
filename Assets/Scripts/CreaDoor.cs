@@ -20,9 +20,14 @@ public class CreaDoor : MonoBehaviour
     {
         if (investigateFlag && Input.GetKeyDown(KeySet.investigateKey))
         {
-            if (FlagManager.crearFlag)
+            if (FlagManager.crearFlag && FlagManager.blackKeyFlag)
             {
+                GameManager.instance.spriteManager.PanelToNull(1);
                 Debug.Log("クリア");
+            }
+            else if (FlagManager.crearFlag && !FlagManager.blackKeyFlag)
+            {
+                Debug.Log("持ってるカギで開けられそう");
             }
             else
             {

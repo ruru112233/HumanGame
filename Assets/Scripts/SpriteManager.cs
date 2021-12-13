@@ -7,28 +7,56 @@ public class SpriteManager : MonoBehaviour
 {
     public List<Sprite> sprites;
 
-    private int[] panels = new int[] { 1, 0, 0, 0 };
+    private int[] panels = new int[] { 0, 0, 0, 0 };
+
+    public int[] Panels
+    {
+        get { return panels; }
+        set { panels = value; }
+    }
+
+    StockPanel stockPanel;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        stockPanel = GameManager.instance.stockPanel;
+
+        //PanelSet();
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (int panel in panels)
+
+    }
+
+    public void PanelSet(Sprite sprite, int keyNo)
+    {
+        for (int i = 0; i < panels.Length; i++)
         {
-            if (panel == 0)
+            if (panels[i] == 0)
             {
+                Panels[i] = keyNo;
+                stockPanel.buttonList[i].GetComponent<Image>().sprite = sprite;
                 return;
             }
 
-            if (panel == 1)
+        }
+
+    }
+
+    public void PanelToNull(int num)
+    {
+        for (int i = 0; i < panels.Length; i++)
+        {
+            if (panels[i] == num)
             {
-                GameManager.instance.stockPanel.buttonList[panel - 1].GetComponent<Image>().sprite = sprites[0];
+                Panels[i] = 0;
+                stockPanel.buttonList[i].GetComponent<Image>().sprite = null;
+                return;
             }
         }
     }
+
 }

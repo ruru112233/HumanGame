@@ -7,15 +7,12 @@ public class StockPanel : MonoBehaviour
 {
     public List<Button> buttonList;
 
-    // Start is called before the first frame update
-    void Start()
+    public void panelSelectOff()
     {
-        
+        foreach (Button button in buttonList)
+        {
+            button.GetComponent<Image>().color = Color.white;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

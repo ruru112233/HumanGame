@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public StockPanel stockPanel;
+    public SpriteManager spriteManager;
 
     public static GameManager instance;
 
