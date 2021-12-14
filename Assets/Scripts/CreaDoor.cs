@@ -23,6 +23,7 @@ public class CreaDoor : MonoBehaviour
             if (FlagManager.crearFlag && FlagManager.blackKeyFlag)
             {
                 GameManager.instance.spriteManager.PanelToNull(1);
+                GameManager.instance.stockPanel.panelSelectOff();
                 Debug.Log("ÉNÉäÉA");
             }
             else if (FlagManager.crearFlag && !FlagManager.blackKeyFlag)

@@ -10,6 +10,7 @@ TagManager:
   - waypoint
   - Ground
   - Item
+  - GetItemPanel
   layers:
   - Default
   - TransparentFX
