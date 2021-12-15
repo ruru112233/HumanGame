@@ -6,6 +6,8 @@ using KeyCodeScript;
 public class Q2Sctipts : MonoBehaviour
 {
     private bool investigateFlag = false;
+    [SerializeField]
+    private GameObject Q2Panel;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class Q2Sctipts : MonoBehaviour
             if (Input.GetKeyDown(KeySet.investigateKey))
             {
                 Debug.Log("3Œ…‚Ì”Ô†‚ğ“ü‚ê‚é");
+                Q2Panel.SetActive(true);
             }
         }
     }

@@ -11,7 +11,7 @@ public class ButtonPack : MonoBehaviour
 
     public Text noText;
 
-    private int pwNo = 0;
+    public int pwNo = 0;
 
     // Start is called before the first frame update
     void Start()
