@@ -14,6 +14,9 @@ namespace CheckPoint
         public static bool greenKeyFlag = false;
         public static bool redKeyFlag = false;
 
+        // ƒvƒŒƒCƒ„[‚Ì§Œä
+        public static bool playerStop = false;
+
         public static void FlagOff()
         {
             blackKeyFlag = false;

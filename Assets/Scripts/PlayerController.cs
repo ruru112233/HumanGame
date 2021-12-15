@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CheckPoint;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     private float jumpPower = 6.0f;
     private bool jumpFlag = false;
+
+    
 
     private Rigidbody rb;
 
@@ -21,12 +24,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Jump();
+        if (!FlagManager.playerStop)
+        {
+            Jump();
+        }
     }
 
     private void FixedUpdate()
     {
-        PlayerMove();
+        if (!FlagManager.playerStop)
+        {
+            PlayerMove();
+        }
     }
 
     private void PlayerMove()
