@@ -1,47 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CheckPoint;
 using KeyCodeScript;
+using CheckPoint;
 
-public class CreaDoor : MonoBehaviour
+public class YajirushiScript : MonoBehaviour
 {
 
     private bool investigateFlag = false;
-
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (investigateFlag && Input.GetKeyDown(KeySet.investigateKey))
+
+        if (Input.GetKeyDown(KeySet.investigateKey) && investigateFlag)
         {
-            if (FlagManager.crearFlag && FlagManager.blackKeyFlag)
+            if (FlagManager.dengenFlag)
             {
-                GameManager.instance.spriteManager.PanelToNull(1);
-                GameManager.instance.stockPanel.panelSelectOff();
-                Debug.Log("クリア");
-            }
-            else if (FlagManager.crearFlag && !FlagManager.blackKeyFlag)
-            {
-                Debug.Log("持ってるカギで開けられそう");
+                Debug.Log("電源を消した");
+                FlagManager.dengenOff = !FlagManager.dengenOff;
             }
             else
             {
-                Debug.Log("カギがかかっている。");
+                Debug.Log("上に電源がある。長い棒があれば、スイッチを押せそうだ");
+
             }
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("接触");
             investigateFlag = true;
         }
     }
@@ -53,5 +49,4 @@ public class CreaDoor : MonoBehaviour
             investigateFlag = false;
         }
     }
-
 }

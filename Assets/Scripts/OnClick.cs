@@ -22,23 +22,24 @@ public class OnClick : MonoBehaviour
 
     private void FlagChange(string imageName)
     {
+        FlagManager.FlagOff();
+
         switch (imageName)
         {
             case "Black":
-                FlagManager.FlagOff();
                 FlagManager.blackKeyFlag = true;
                 break;
             case "Blue":
-                FlagManager.FlagOff();
                 FlagManager.blueKeyFlag = true;
                 break;
             case "Green":
-                FlagManager.FlagOff();
                 FlagManager.greenKeyFlag = true;
                 break;
             case "Red":
-                FlagManager.FlagOff();
                 FlagManager.redKeyFlag = true;
+                break;
+            case "bou":
+                FlagManager.dengenFlag = true;
                 break;
         }
     }

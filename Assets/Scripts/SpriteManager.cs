@@ -9,6 +9,9 @@ public class SpriteManager : MonoBehaviour
 
     private int[] panels = new int[] { 0, 0, 0, 0 };
 
+    [SerializeField]
+    private GameObject getItemPanel;
+
     public int[] Panels
     {
         get { return panels; }
@@ -39,9 +42,9 @@ public class SpriteManager : MonoBehaviour
             {
                 Panels[i] = keyNo;
                 stockPanel.buttonList[i].GetComponent<Image>().sprite = sprite;
+                StartCoroutine(GetItemView(keyNo));
                 return;
             }
-
         }
 
     }
@@ -57,6 +60,43 @@ public class SpriteManager : MonoBehaviour
                 return;
             }
         }
+    }
+
+    string ItemName(int itemNo)
+    {
+        string itemName = "";
+
+        string tmp = "を手に入れた!";
+
+        switch (itemNo)
+        {
+            case 0:
+                itemName = "カギ（黒）" + tmp;
+                break;
+            case 1:
+                itemName = "カギ（青）" + tmp;
+                break;
+            case 2:
+                itemName = "カギ（緑）" + tmp;
+                break;
+            case 3:
+                itemName = "カギ（赤）" + tmp;
+                break;
+            case 4:
+                itemName = "木の棒" + tmp;
+                break;
+        }
+
+        return itemName;
+    }
+
+    IEnumerator GetItemView(int keyNo)
+    {
+        getItemPanel.SetActive(true);
+        getItemPanel.transform.GetChild(0).GetComponent<Text>().text = ItemName(keyNo - 1);
+        yield return new WaitForSeconds(1.0f);
+
+        getItemPanel.SetActive(false);
     }
 
 }

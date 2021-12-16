@@ -1,47 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CheckPoint;
 using KeyCodeScript;
+using CheckPoint;
 
-public class CreaDoor : MonoBehaviour
+public class Q2Sctipts : MonoBehaviour
 {
-
     private bool investigateFlag = false;
+    [SerializeField]
+    private GameObject Q2Panel;
+
+    private Panel3KetaController panel3keta;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        panel3keta = Q2Panel.GetComponent<Panel3KetaController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (investigateFlag && Input.GetKeyDown(KeySet.investigateKey))
+        if (investigateFlag)
         {
-            if (FlagManager.crearFlag && FlagManager.blackKeyFlag)
+            if (Input.GetKeyDown(KeySet.investigateKey))
             {
-                GameManager.instance.spriteManager.PanelToNull(1);
-                GameManager.instance.stockPanel.panelSelectOff();
-                Debug.Log("クリア");
+                Debug.Log("3桁の番号を入れる");
+                FlagManager.playerStop = true;
+                Q2Panel.SetActive(true);
             }
-            else if (FlagManager.crearFlag && !FlagManager.blackKeyFlag)
+            else if (Input.GetKeyDown(KeySet.chancelKey))
             {
-                Debug.Log("持ってるカギで開けられそう");
-            }
-            else
-            {
-                Debug.Log("カギがかかっている。");
+                // キャンセル
+                FlagManager.playerStop = false;
+                panel3keta.PwInit();
+                Q2Panel.SetActive(false);
             }
         }
-
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("接触");
             investigateFlag = true;
         }
     }
@@ -53,5 +56,4 @@ public class CreaDoor : MonoBehaviour
             investigateFlag = false;
         }
     }
-
 }

@@ -9,6 +9,7 @@ namespace KeyCodeScript
         public static KeyCode upKey = KeyCode.UpArrow;
         public static KeyCode downKey = KeyCode.DownArrow;
         public static KeyCode investigateKey = KeyCode.C;
+        public static KeyCode chancelKey = KeyCode.X;
 
     }
 }
