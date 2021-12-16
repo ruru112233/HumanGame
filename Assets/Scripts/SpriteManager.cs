@@ -82,6 +82,9 @@ public class SpriteManager : MonoBehaviour
             case 3:
                 itemName = "ÉJÉMÅiê‘Åj" + tmp;
                 break;
+            case 4:
+                itemName = "ñÿÇÃñ_" + tmp;
+                break;
         }
 
         return itemName;

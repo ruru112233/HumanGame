@@ -24,8 +24,12 @@ public class TreasureChestController : MonoBehaviour
         {
             if (FlagManager.treasureFlag)
             {
+                if (FlagManager.getKinobou) return;
+                
                 Debug.Log("•ó” ‚ðŠJ‚¯‚½");
                 upper.transform.rotation = Quaternion.Euler(-170, -90,0);
+                GameManager.instance.spriteManager.PanelSet(GameManager.instance.spriteManager.sprites[4], 5);
+                FlagManager.getKinobou = true;
             }
             else
             {

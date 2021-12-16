@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CheckPoint
 {
-    public class FlagManager
+    public static class FlagManager
     {
         public static bool crearFlag = false;
 
@@ -16,11 +16,14 @@ namespace CheckPoint
         public static bool redKeyFlag = false;
 
         // 電源スイッチ
-        public static bool dengenOn = false; // 電源がついているかのフラグ
+        public static bool dengenOff = false; // 電源がついているかのフラグ
         public static bool dengenFlag = false; // 電源がつけられるかのフラグ
 
         // プレイヤーの制御
         public static bool playerStop = false;
+
+        // 木の棒を手に入れたフラグ
+        public static bool getKinobou = false;
 
 
         public static void OffFlagAll() 
@@ -31,10 +34,10 @@ namespace CheckPoint
             blueKeyFlag = false;
             greenKeyFlag = false;
             redKeyFlag = false;
-            dengenOn = false;
+            dengenOff = false;
             dengenFlag = false;
             playerStop = false;
-
+            getKinobou = false;
         }
 
         public static void FlagOff()
@@ -43,7 +46,8 @@ namespace CheckPoint
             blueKeyFlag = false;
             greenKeyFlag = false;
             redKeyFlag = false;
-        }
+            dengenFlag = false;
+    }
     }
 
 }

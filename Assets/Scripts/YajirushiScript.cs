@@ -17,15 +17,18 @@ public class YajirushiScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeySet.investigateKey))
+
+        if (Input.GetKeyDown(KeySet.investigateKey) && investigateFlag)
         {
             if (FlagManager.dengenFlag)
             {
                 Debug.Log("電源を消した");
+                FlagManager.dengenOff = !FlagManager.dengenOff;
             }
             else
             {
                 Debug.Log("上に電源がある。長い棒があれば、スイッチを押せそうだ");
+
             }
         }
     }
